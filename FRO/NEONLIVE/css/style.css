@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: sans-serif;
+
+}
+
+.neon {
+    height: 80rem;
+    background: #252a34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 4rem;
+}
+
+.cirkels{
+    height: 40rem;
+    width: 40rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: inset 0 0 3rem rgba(0, 0, 0, 0.6);
+    animation-name: colorrotation;
+    animation-duration: 30s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+.cirkels-1{
+    top: -10%;
+    left: -10%;
+    background: linear-gradient(#2fa4ff, #00ffdd);
+}
+
+.cirkels-2{
+    top: -10%;
+    right: -10%;
+    background: linear-gradient(#49ff00, #77d970);
+}
+
+.cirkels-3{
+    left: -10%;
+    top: 50%;
+    background: linear-gradient(#49ff00, #77d970);
+}
+
+.cirkels-4{
+    right: -10%;
+    top: 55%;
+    background: linear-gradient(#2fa4ff, #00ffdd);
+}
+
+h1 {
+    color: white;
+    font-size: 300%;
+    animation-name: popup;
+    animation-duration: 0.8s;
+    animation-delay: 1.2s;
+    animation-fill-mode: backwards;
+    z-index: 1;
+}
+
+.cards {
+    display: flex;
+    gap: 2rem;
+    height: 20rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 20rem;
+    height: 20rem;
+    list-style: none;
+    background: rgba(34, 40, 49, 0.8);
+    border: 0.1rem solid rgba(255, 255, 255, 0.6);
+    position: relative;
+    animation-name: popup;
+    animation-duration: 0.8s;
+    animation-delay: 0.1s;
+    animation-fill-mode: backwards;
+    transition: 0.2s transform;
+}
+.card:nth-of-type(2){
+    animation-delay: 0.2s;
+}
+.card:nth-of-type(3){
+    animation-delay: 0.3s;
+}
+.card:nth-of-type(4){
+    animation-delay: 0.4s;
+}
+.card:nth-of-type(5){
+    animation-delay: 0.5s;
+}
+.card:nth-of-type(6){
+    animation-delay: 0.6s;
+}
+
+.card::after{
+    content: "";
+    background: linear-gradient(#2fa4ff, #00ffdd);
+    width: 100%;
+    height: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation-name: colorrotation;
+    animation-duration: 30s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.card:nth-of-type(2)::after, .card:nth-of-type(4)::after, .card:nth-of-type(6)::after{
+    background: linear-gradient(#49ff00, #77d970);
+}
+
+@keyframes colorrotation{
+    from{
+        filter: hue-rotate(0);
+    }
+    to{
+        filter: hue-rotate(1turn);
+    }
+}
+
+@keyframes popup{
+    from{
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media  screen and (max-width: 37.5rem) {
+    .neon{
+        height: auto;
+    }
+    .cirkels-2{
+        display: none;
+    }
+}
